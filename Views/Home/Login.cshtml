@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<style>
+    @@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+<body>
+
+    <div class="rounded-lg border bg-card text-card-foreground shadow-sm mx-auto max-w-sm mt-24" data-v0-t="card">
+        <div class="flex flex-col p-6 space-y-1">
+            <h3 class="whitespace-nowrap tracking-tight text-2xl font-bold">Login</h3>
+            <p class="text-sm text-muted-foreground">Inicio de Sesión</p>
+        </div>
+        <form id="loginForm" method="post">
+            @Html.AntiForgeryToken()
+            <div class="p-6 space-y-4">
+                <div class="space-y-2">
+                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                           for="email">
+                        Email
+                    </label>
+                    <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                           id="email"
+                           placeholder="m@example.com"
+                           required=""
+                           type="email"
+                           name="email" />
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                           for="password">
+                        Contraseña
+                    </label>
+                    <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                           id="password"
+                           required=""
+                           type="password"
+                           name="password" />
+                </div>
+                <input type="hidden" name="rememberSession" value="0" />
+                <div class="flex items-center space-x-2">
+                    <input type="checkbox" id="remember-session" />
+                    <label for="remember-session" class="text-sm font-medium">
+                        Recordar Sesión
+                    </label>
+                </div>
+                <button class="border border-gray-500 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-neutral-950	hover:text-slate-100	 h-10 px-4 py-2 w-full"
+                        type="submit">
+                    Iniciar Sesión
+                </button>
+                <div class="text-center text-sm">
+                    No tienes cuenta?
+                    <a class="underline" href="/Home/Registro" rel="ugc">
+                        Crear cuenta
+                    </a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div id="validate" style="margin: 0 auto; margin-top: 20px; display: none;" class=" my-16 p-4 text-sm text-red-900 rounded-lg bg-red-200 w-96" role="alert">
+        <h3 class="font-medium text-center">¡Credenciales Incorrectas! &nbsp; Verifica tus credenciales. </h3>  
+</div>
+</body>
+</html>
+
+@Scripts.Render("~/bundles/login")

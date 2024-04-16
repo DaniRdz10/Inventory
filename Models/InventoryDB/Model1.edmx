@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InventorySystemDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="GetPasswordHashByEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="PasswordHash" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="GetUserByToken" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Token" Type="varchar" Mode="In" />
+          <Parameter Name="UserId" Type="bigint" Mode="InOut" />
+          <Parameter Name="Name" Type="varchar" Mode="InOut" />
+          <Parameter Name="Email" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="SaveUserTokenByEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Token" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SetUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+          <Parameter Name="ErrorMessage" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="InventorySystemDBModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InventorySystemDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="InventorySystemDBEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="SetUsers">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetPasswordHashByEmail">
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="PasswordHash" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetUserByToken">
+            <Parameter Name="Token" Mode="In" Type="String" />
+            <Parameter Name="UserId" Mode="InOut" Type="Int64" />
+            <Parameter Name="Name" Mode="InOut" Type="String" />
+            <Parameter Name="Email" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SaveUserTokenByEmail">
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Token" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InventorySystemDBModelStoreContainer" CdmEntityContainer="InventorySystemDBEntities" >
+          <FunctionImportMapping FunctionImportName="SetUsers" FunctionName="InventorySystemDBModel.Store.SetUsers" />
+          <FunctionImportMapping FunctionImportName="GetPasswordHashByEmail" FunctionName="InventorySystemDBModel.Store.GetPasswordHashByEmail" />
+          <FunctionImportMapping FunctionImportName="GetUserByToken" FunctionName="InventorySystemDBModel.Store.GetUserByToken" />
+          <FunctionImportMapping FunctionImportName="SaveUserTokenByEmail" FunctionName="InventorySystemDBModel.Store.SaveUserTokenByEmail" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
