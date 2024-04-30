@@ -153,20 +153,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-<<<<<<< Updated upstream
     <Compile Include="Models\InventoryDB\Model1.cs">
-=======
-    <Compile Include="Models\Inventory\Model1.cs">
->>>>>>> Stashed changes
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-<<<<<<< Updated upstream
     <Compile Include="Models\InventoryDB\Model1.Designer.cs">
-=======
-    <Compile Include="Models\Inventory\Model1.Designer.cs">
->>>>>>> Stashed changes
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -197,12 +189,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Inventory\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Models\InventoryDB\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -219,11 +205,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-<<<<<<< Updated upstream
     <Content Include="Models\InventoryDB\Model1.edmx.diagram">
-=======
-    <Content Include="Models\Inventory\Model1.edmx.diagram">
->>>>>>> Stashed changes
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
